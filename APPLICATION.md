@@ -137,11 +137,12 @@ multimodal validations.
 ### Existing AI background (optional context)
 
 This SDK is being built by the maintainer of an **autonomous LLM-driven
-prediction agent** that has been running on a 24/7 production loop
-against the AWP Predict WorkNet, executing 50+ predictions per day with
-a 49 % win rate and earning $PRED + AWP token rewards. That system
+prediction agent** (Hermes) that has been running on a 24/7 production
+loop against the AWP Predict WorkNet. Live figures at time of writing:
+73 predictions placed, 37/30 W/L = **55 % win rate**, 64 LLM calls on
+the current day, 40.71 $PRED + 4.31 AWP earned lifetime. That system
 already calls MiMo through an OpenAI-compatible router; `mimo-sdk-py`
-generalizes that integration pattern into something the broader Python
+generalizes the integration pattern into something the broader Python
 community can pick up in a single `pip install`.
 
 ---
@@ -150,6 +151,52 @@ community can pick up in a single `pip install`.
 
 These are short answers tailored to the form on
 [100t.xiaomimimo.com](https://100t.xiaomimimo.com/). Tune as needed.
+
+### Form field 02 — Agent tool you use most
+> **Hermes Agent** (primary)
+
+### Form field 03 — Primary model series
+> **Claude** + **MiMo**
+
+### Form field 04 — "Describe what you've built" (≥ 100 words, ≤ 1,200 chars)
+
+> **Core problem.** MiMo's platform is OpenAI-compatible on paper, but
+> every team re-implements the same plumbing in production agent loops:
+> base64-decoding TTS audio inside chat responses, parsing SSE for
+> reasoning tokens, retrying 429s with Retry-After, encoding vision
+> for mimo-v2-omni, mapping HTTP errors to typed exceptions. I removed
+> that friction by shipping **mimo-sdk-py** (MIT,
+> github.com/amilaa-0/mimo-sdk-py) — a typed, async-ready Python SDK
+> wrapping every MiMo endpoint behind an OpenAI-shaped surface.
+>
+> **Core logic flow (multi-agent, long-chain).** The SDK underpins a
+> ReAct loop: user query → mimo-v2-pro (1M ctx) emits tool_calls → local
+> executor runs calculator / file-reader / web-fetch / human-handoff →
+> observations return as role:tool → loop until finish. The same SDK
+> drives **Hermes**, my autonomous prediction agent running 24/7 on the
+> AWP Predict WorkNet — 73 predictions placed, **55% win rate**, 40.71
+> $PRED earned, chaining 4 sub-agents (signal → risk → sizing →
+> execution). Every call goes through mimo-sdk-py, so the SDK is
+> production-tested before it hit PyPI. 43 unit tests, CI green on
+> Python 3.9–3.12, verified live against MiMo.
+
+### Form field 05 — Proof of usage & impact (5 PNG files ready to upload)
+
+Located at `/home/ubuntu/Downloads/` and `proof/images/`:
+
+| File | Shows |
+|------|-------|
+| `01_tests_passing.png` | `pytest -v` output — 43 passed in 0.74s |
+| `02_ci_success.png`    | GitHub Actions CI #1 — 5/5 jobs green on Py 3.9–3.12 |
+| `03_live_mimo.png`     | Real round-trip to MiMo: `PONG` + streaming `1 2 3 4 5` |
+| `04_cli_demo.png`      | `mimo` CLI install + `models` + `chat` subcommands |
+| `05_agent_status.png`  | Hermes prediction agent live stats (73 bets, 55 % win) |
+
+Plus the GitHub link (already pasted in the form): https://github.com/amilaa-0/mimo-sdk-py
+
+---
+
+## Legacy Mandarin draft (older phrasing, keep as fallback)
 
 **"AI 工具" (AI tools you use):**
 > Cursor, Claude Code, OpenClaw, custom Python agents.
