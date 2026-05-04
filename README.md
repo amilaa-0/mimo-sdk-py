@@ -2,6 +2,7 @@
 
 > Pythonic SDK for the **Xiaomi MiMo** API. Chat, vision, TTS, streaming, async, agentic — fully typed, OpenAI-compatible.
 
+[![CI](https://github.com/amilaa-0/mimo-sdk-py/actions/workflows/ci.yml/badge.svg)](https://github.com/amilaa-0/mimo-sdk-py/actions/workflows/ci.yml)
 [![PyPI](https://img.shields.io/badge/PyPI-mimo--sdk-blue)](https://pypi.org/project/mimo-sdk/)
 [![Python](https://img.shields.io/badge/python-3.9%2B-blue.svg)](#)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
