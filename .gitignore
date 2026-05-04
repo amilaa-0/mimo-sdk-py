@@ -1,0 +1,48 @@
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+*.egg-info/
+*.egg
+build/
+dist/
+wheels/
+.eggs/
+
+# Virtual envs
+.venv/
+venv/
+env/
+.env
+.envrc
+
+# Tooling
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+.coverage
+htmlcov/
+.tox/
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+.DS_Store
+
+# Outputs / examples
+*.mp3
+*.wav
+*.ogg
+*.png
+!docs/**/*.png
+out/
+output/
+artifacts/
+.cache/
+
+# Workflow — add manually via GitHub web UI (requires workflow scope PAT)
+_github_backup/
